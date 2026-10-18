@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: delta-pulse-dhan-backend
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AUTO_GENERATE_ACCESS_TOKEN
+        value: "true"
+      - key: ENABLE_LIVE_FEED
+        value: "true"
+      - key: ENABLE_20_DEPTH
+        value: "true"
+      - key: DATA_DIR
+        value: /var/data
